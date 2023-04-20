@@ -1,16 +1,17 @@
-# Serenity JUnit Screenplay Starter project
+# Serenity BDD Example with Junit, Selenium
 
-Get started quickly with Serenity BDD and JUnit 5 with this simple starter project. 
+Automation tests using serenity bdd, junit and selenium on the [saucedemo website](https://www.saucedemo.com/)
 
-## Get the code
-
-Git:
-
-    git clone https://github.com/serenity-bdd/serenity-junit-screenplay-starter
-    cd serenity-junit-screenplay-starter
-
-
-Or simply [download a zip](https://github.com/serenity-bdd/serenity-junit-screenplay-starter/archive/master.zip) file.
+## Instructions
+1. Clone repo
+```bash
+git clone https://github.com/franciscopantojag/serenity-bdd-example.git
+```
+2. Install maven dependencies
+3. Run `aSuccessMessageShouldAppearAfterBuying` test under:
+```
+src/test/java/saucedemo/WhenBuyingProducts.java
+```
 
 ## Use Maven
 
@@ -18,15 +19,7 @@ Open a command window and run:
 
     mvn clean verify
 
-## Use Gradle
-
-Open a command window and run:
-
-    gradlew test 
-
 ## Viewing the reports
 
 Both of the commands provided above will produce a Serenity test report in the `target/site/serenity` directory. Go take a look!
-
-## Tailoring the project to your needs
 
