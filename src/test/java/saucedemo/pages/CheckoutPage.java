@@ -1,13 +1,10 @@
 package saucedemo.pages;
 
-import net.serenitybdd.core.Serenity;
-import net.serenitybdd.core.pages.ListOfWebElementFacades;
-import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
-
+import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CheckoutPage extends BasePage {
@@ -37,6 +34,9 @@ public class CheckoutPage extends BasePage {
     @FindBy(xpath = "//*[@id='checkout_complete_container']/h2")
     WebElementFacade successMessageElement;
 
+    @FindAll({@FindBy(xpath = "//div[@class='summary_value_label']")})
+    private List<WebElementFacade> vls;
+
 
     @Step
     public void fillPersonalDataAndContinue(String firstName, String lastName, String postalCode) {
@@ -63,11 +63,8 @@ public class CheckoutPage extends BasePage {
 
     @Step
     public void showCheckoutInfo() {
-        ListOfWebElementFacades vls = findAll("//div[@class='summary_value_label']");
-
         recordDataReport("Payment Info", vls.get(0).getText());
         recordDataReport("Shipping Info", vls.get(1).getText());
-
 
         String subTotal = summarySubtotalLabel.getText();
         String taxTotal = summaryTaxLabel.getText();
